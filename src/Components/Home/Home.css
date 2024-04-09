@@ -1,0 +1,23 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 12rem;
+}
+
+.btn {
+  background-color: rgb(6, 115, 223); /* Change button color to light blue */
+  color: white;
+  padding: 20px 35px;
+  margin: 5px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+.btn:hover {
+  background-color: rgb(0, 51, 146); /* Darker shade of blue on hover */
+}
