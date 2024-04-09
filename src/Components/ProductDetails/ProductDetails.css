@@ -1,0 +1,81 @@
+.container {
+  margin-top: 8rem;
+  display: flex;
+  justify-content: center;
+}
+
+.navbar-2 {
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+  background-color: #f8f9fa;
+}
+
+.header-text {
+  font-size: 27px;
+  font-weight: 700;
+}
+
+table {
+  width: 40%;
+  border-collapse: collapse;
+  border: 1px solid #ddd;
+  text-align: center;
+}
+
+td,
+th {
+  padding: 8px;
+  border-bottom: 1px solid #ddd;
+}
+
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+td:first-child {
+  width: 30%;
+}
+
+.green-button-2 {
+  background-color: green;
+  color: white;
+  border: none;
+  padding: 10px 26px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+input[type="text"] {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  width: 100%;
+  font-size: 14px;
+  transition: border-color 0.3s ease;
+}
+
+.btn-cls {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.red-button {
+  background-color: rgb(230, 41, 41);
+  color: white;
+  border: none;
+  padding: 10px 26px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.blue-button {
+  background-color: rgb(41, 145, 230);
+  color: white;
+  border: none;
+  padding: 10px 26px;
+  border-radius: 5px;
+  cursor: pointer;
+}
