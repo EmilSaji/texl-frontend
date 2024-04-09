@@ -1,10 +1,15 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import axios from "axios";
 import "./ProductList.css";
-import { FaEdit } from "react-icons/fa";
+import { LuMousePointerClick } from "react-icons/lu";
+import ProductContext from "../../ProductContext";
+import { useNavigate } from "react-router-dom";
 
 const ProductList = () => {
+  const navigate = useNavigate();
+  const { productDetails, setProductDetails } = useContext(ProductContext);
   const [products, setProducts] = useState([]);
+
   useEffect(() => {
     const fetchProducts = async () => {
       try {
@@ -17,11 +22,22 @@ const ProductList = () => {
     fetchProducts();
   }, []);
 
+  const goToHomePage = () => {
+    navigate("/");
+  };
+
+  const editProduct = (product) => {
+    setProductDetails(product);
+    navigate("/details");
+  };
+
   return (
     <div>
       <div className="navbar">
         <div className="left-button">
-          <button className="button">Home</button>
+          <button className="button" onClick={goToHomePage}>
+            Home
+          </button>
         </div>
         <div className="header-text">Products</div>
         <div className="right-buttons">
@@ -40,7 +56,7 @@ const ProductList = () => {
                 <th>Category</th>
                 <th>Price</th>
                 <th>Quantity</th>
-                <th>Actions</th>
+                <th>Action</th>
               </tr>
             </thead>
             <tbody>
@@ -52,8 +68,11 @@ const ProductList = () => {
                   <td>{product.price}</td>
                   <td>{product.quantity}</td>
                   <td>
-                    <button className="green-button">
-                      <FaEdit /> Edit
+                    <button
+                      className="green-button"
+                      onClick={() => editProduct(product)}
+                    >
+                      <LuMousePointerClick /> Details
                     </button>
                   </td>
                 </tr>
