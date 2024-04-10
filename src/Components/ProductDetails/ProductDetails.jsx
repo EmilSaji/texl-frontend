@@ -70,6 +70,27 @@ const ProductDetails = () => {
     navigate("/products");
   };
 
+  const deleteProduct = async () => {
+    try {
+      const response = await axios.delete(
+        `http://localhost:5000/delete-products/${productDetails.id}`
+      );
+      Swal.fire({
+        title: "Done",
+        text: "Product Deleted",
+        icon: "success",
+      });
+      navigate("/products");
+    } catch (error) {
+      Swal.fire({
+        title: "Failed",
+        text: "Failed to delete product",
+        icon: "error",
+      });
+      console.log("Error", error);
+    }
+  };
+
   return (
     <div>
       <header className="navbar-2">
@@ -157,6 +178,13 @@ const ProductDetails = () => {
           >
             {isEditable ? "Cancel" : "Back To Product List"}
           </button>
+          {!isEditable ? (
+            <button className="red-button" onClick={deleteProduct}>
+              Delete
+            </button>
+          ) : (
+            ""
+          )}
         </div>
       </div>
     </div>
