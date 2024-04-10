@@ -15,7 +15,7 @@ const ProductList = () => {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const response = await axios.get("http://localhost:5000/products");
+        const response = await axios.get("https://blue-green-caridea-wrap.cyclic.app/products");
         setProducts(response.data);
       } catch (error) {
         console.error("Error fetching products:", error);

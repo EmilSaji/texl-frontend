@@ -14,7 +14,7 @@ const Dashboard = () => {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          "http://localhost:5000/product-totals"
+          "https://blue-green-caridea-wrap.cyclic.app/product-totals"
         );
         setProductTotals(response.data);
       } catch (error) {

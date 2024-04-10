@@ -30,7 +30,7 @@ const ProductDetails = () => {
   const saveProduct = async () => {
     try {
       const response = await axios.put(
-        `http://localhost:5000/update-products/${productDetails.id}`,
+        `https://blue-green-caridea-wrap.cyclic.app/update-products/${productDetails.id}`,
         {
           name: details.name,
           category: details.category,
@@ -57,7 +57,7 @@ const ProductDetails = () => {
   const fetchProduct = async () => {
     try {
       const response = await axios.get(
-        `http://localhost:5000/products/${productDetails.id}`
+        `https://blue-green-caridea-wrap.cyclic.app/products/${productDetails.id}`
       );
       setProductDetails(response.data);
       setIsEditable();
@@ -73,7 +73,7 @@ const ProductDetails = () => {
   const deleteProduct = async () => {
     try {
       const response = await axios.delete(
-        `http://localhost:5000/delete-products/${productDetails.id}`
+        `https://blue-green-caridea-wrap.cyclic.app/delete-products/${productDetails.id}`
       );
       Swal.fire({
         title: "Done",

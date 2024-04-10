@@ -20,7 +20,7 @@ const CreateProduct = () => {
 
   const createProduct = async () => {
     try {
-      await axios.post("http://localhost:5000/create-product", details);
+      await axios.post("https://blue-green-caridea-wrap.cyclic.app/create-product", details);
       setDetails({
         name: "",
         category: "",
