@@ -6,6 +6,7 @@ import ProductList from "./Components/ProductList/ProductList";
 import ProductDetails from "./Components/ProductDetails/ProductDetails";
 import ProductContext from "./ProductContext";
 import CreateProduct from "./Components/CreateProduct/CreateProduct";
+import Dashboard from "./Components/Dashboard/Dashboard";
 
 const App = () => {
   const [productDetails, setProductDetails] = useState(null);
@@ -23,6 +24,7 @@ const App = () => {
           <Route path="/products" element={<ProductList />} />
           <Route path="/details" element={<ProductDetails />} />
           <Route path="/create" element={<CreateProduct />} />
+          <Route path="/dashboard" element={<Dashboard />} />
         </Routes>
       </Router>
     </ProductContext.Provider>
