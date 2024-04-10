@@ -46,7 +46,8 @@ td:first-child {
   cursor: pointer;
 }
 
-input[type="text"] {
+input[type="text"],
+input[type="number"] {
   padding: 8px;
   border: 1px solid #ccc;
   border-radius: 4px;

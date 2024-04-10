@@ -31,6 +31,10 @@ const ProductList = () => {
     navigate("/details");
   };
 
+  const createProduct = () => {
+    navigate("/create");
+  };
+
   return (
     <div>
       <div className="navbar">
@@ -41,7 +45,9 @@ const ProductList = () => {
         </div>
         <div className="header-text">Products</div>
         <div className="right-buttons">
-          <button className="button ">Create Product</button>
+          <button className="button " onClick={createProduct}>
+            Create Product
+          </button>
         </div>
       </div>
 

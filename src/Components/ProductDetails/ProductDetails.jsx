@@ -3,6 +3,7 @@ import axios from "axios";
 import "./ProductDetails.css";
 import ProductContext from "../../ProductContext";
 import { useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const ProductDetails = () => {
   const navigate = useNavigate();
@@ -38,7 +39,17 @@ const ProductDetails = () => {
         }
       );
       await fetchProduct();
+      Swal.fire({
+        title: "Done",
+        text: "Product Updated",
+        icon: "success",
+      });
     } catch (error) {
+      Swal.fire({
+        title: "Failed",
+        text: "Failed to update product",
+        icon: "error",
+      });
       console.error("Error saving data:", error);
     }
   };
@@ -105,7 +116,7 @@ const ProductDetails = () => {
               {isEditable ? (
                 <td>
                   <input
-                    type="text"
+                    type="number"
                     name="price"
                     value={details.price}
                     onChange={handleInputChange}
@@ -121,7 +132,7 @@ const ProductDetails = () => {
               {isEditable ? (
                 <td>
                   <input
-                    type="text"
+                    type="number"
                     name="quantity"
                     value={details.quantity}
                     onChange={handleInputChange}

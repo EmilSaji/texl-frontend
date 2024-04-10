@@ -4,7 +4,8 @@ import "./App.css";
 import Home from "./Components/Home/Home";
 import ProductList from "./Components/ProductList/ProductList";
 import ProductDetails from "./Components/ProductDetails/ProductDetails";
-import ProductContext  from "./ProductContext";
+import ProductContext from "./ProductContext";
+import CreateProduct from "./Components/CreateProduct/CreateProduct";
 
 const App = () => {
   const [productDetails, setProductDetails] = useState(null);
@@ -21,6 +22,7 @@ const App = () => {
           <Route path="/" element={<Home />} />
           <Route path="/products" element={<ProductList />} />
           <Route path="/details" element={<ProductDetails />} />
+          <Route path="/create" element={<CreateProduct />} />
         </Routes>
       </Router>
     </ProductContext.Provider>
