@@ -9,6 +9,8 @@ const ProductList = () => {
   const navigate = useNavigate();
   const { productDetails, setProductDetails } = useContext(ProductContext);
   const [products, setProducts] = useState([]);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [itemsPerPage, setItemsPerPage] = useState(10);
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -34,6 +36,17 @@ const ProductList = () => {
   const createProduct = () => {
     navigate("/create");
   };
+
+  const totalPages = Math.ceil(products.length / itemsPerPage);
+
+  const handlePageChange = (pageNumber) => {
+    setCurrentPage(pageNumber);
+  };
+
+  const currentProducts = products.slice(
+    (currentPage - 1) * itemsPerPage,
+    currentPage * itemsPerPage
+  );
 
   return (
     <div>
@@ -66,9 +79,9 @@ const ProductList = () => {
               </tr>
             </thead>
             <tbody>
-              {products.map((product, index) => (
+              {currentProducts.map((product, index) => (
                 <tr key={product.id}>
-                  <td>{index + 1}</td>
+                  <td>{index + (currentPage - 1) * itemsPerPage + 1}</td>
                   <td>{product.name}</td>
                   <td>{product.category}</td>
                   <td>{product.price}</td>
@@ -89,6 +102,40 @@ const ProductList = () => {
           <div className="no-prod">No Products Available!!</div>
         )}
       </div>
+
+      {totalPages > 1 && (
+        <div className="pagination">
+          <button
+            className={`pagination-button ${
+              currentPage === 1 ? "disabled" : ""
+            }`}
+            onClick={() => handlePageChange(currentPage - 1)}
+            disabled={currentPage === 1}
+          >
+            Previous
+          </button>
+          {[...Array(totalPages)].map((_, pageNumber) => (
+            <button
+              key={pageNumber + 1}
+              className={`pagination-button ${
+                currentPage === pageNumber + 1 ? "active" : ""
+              }`}
+              onClick={() => handlePageChange(pageNumber + 1)}
+            >
+              {pageNumber + 1}
+            </button>
+          ))}
+          <button
+            className={`pagination-button ${
+              currentPage === totalPages ? "disabled" : ""
+            }`}
+            onClick={() => handlePageChange(currentPage + 1)}
+            disabled={currentPage === totalPages}
+          >
+            Next
+          </button>
+        </div>
+      )}
     </div>
   );
 };
